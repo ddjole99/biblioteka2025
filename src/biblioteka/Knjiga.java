@@ -9,13 +9,19 @@ public class Knjiga {
 	private long isbn;
 	private List<Autor> autori;
 	private String izdavac;
-	private String izdanje;
+	private int izdanje;
 
 	public String getNaslov() {
 		return naslov;
 	}
 
 	public void setNaslov(String naslov) {
+		
+		if(naslov==null)
+			throw new NullPointerException("Naslov ne sme biti null");
+		
+		if(naslov.isEmpty())
+			throw new IllegalArgumentException("Naslov ne sme biti prazno");
 		this.naslov = naslov;
 	}
 
@@ -24,6 +30,9 @@ public class Knjiga {
 	}
 
 	public void setIsbn(long isbn) {
+		
+		if(isbn<=0)
+			throw new IllegalArgumentException("Isbn mora biti veci od nule");
 		this.isbn = isbn;
 	}
 
@@ -40,14 +49,23 @@ public class Knjiga {
 	}
 
 	public void setIzdavac(String izdavac) {
+		
+		if(izdavac==null)
+			throw new NullPointerException("Naziv izdavaca ne sme biti null");
+		
+		if(izdavac.isEmpty())
+			throw new IllegalArgumentException("Naziv izdavaca ne sme biti prazno");
 		this.izdavac = izdavac;
 	}
 
-	public String getIzdanje() {
+	public int getIzdanje() {
 		return izdanje;
 	}
 
-	public void setIzdanje(String izdanje) {
+	public void setIzdanje(int izdanje) {
+		
+		if(izdanje<1)
+			throw new IllegalArgumentException("Izdanje mora biti 1 ili vece");
 		this.izdanje = izdanje;
 	}
 
