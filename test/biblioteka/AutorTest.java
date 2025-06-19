@@ -14,9 +14,10 @@ import org.junit.jupiter.params.provider.CsvSource;
 class AutorTest {
 
 	private Autor a;
+	
 	@BeforeEach
 	void setUp() throws Exception {
-		a=new Autor();
+		a=new Autor(); 
 	}
 
 	@AfterEach
